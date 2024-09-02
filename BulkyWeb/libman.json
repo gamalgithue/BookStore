@@ -1,0 +1,14 @@
+{
+  "version": "1.0",
+  "defaultProvider": "cdnjs",
+  "libraries": [
+    {
+      "library": "bootstrap-icons@1.11.3",
+      "destination": "wwwroot/bootstrap-icons/"
+    },
+    {
+      "library": "toastr.js@2.1.4",
+      "destination": "wwwroot/toastr.js/"
+    }
+  ]
+}
