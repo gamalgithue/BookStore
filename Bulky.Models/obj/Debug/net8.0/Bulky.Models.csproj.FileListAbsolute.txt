@@ -9,3 +9,4 @@ C:\Users\clt\source\repos\Bulky\Bulky.Models\obj\Debug\net8.0\Bulky.Models.dll
 C:\Users\clt\source\repos\Bulky\Bulky.Models\obj\Debug\net8.0\refint\Bulky.Models.dll
 C:\Users\clt\source\repos\Bulky\Bulky.Models\obj\Debug\net8.0\Bulky.Models.pdb
 C:\Users\clt\source\repos\Bulky\Bulky.Models\obj\Debug\net8.0\ref\Bulky.Models.dll
+C:\Users\clt\source\repos\Bulky\Bulky.Models\obj\Debug\net8.0\Bulky.Models.sourcelink.json

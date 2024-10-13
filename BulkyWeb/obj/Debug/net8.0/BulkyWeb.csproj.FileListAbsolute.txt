@@ -142,3 +142,4 @@ C:\Users\clt\source\repos\Bulky\BulkyWeb\bin\Debug\net8.0\Bulky.Utility.dll
 C:\Users\clt\source\repos\Bulky\BulkyWeb\bin\Debug\net8.0\Bulky.DataAccess.pdb
 C:\Users\clt\source\repos\Bulky\BulkyWeb\bin\Debug\net8.0\Bulky.Models.pdb
 C:\Users\clt\source\repos\Bulky\BulkyWeb\bin\Debug\net8.0\Bulky.Utility.pdb
+C:\Users\clt\source\repos\Bulky\BulkyWeb\obj\Debug\net8.0\BulkyWeb.sourcelink.json

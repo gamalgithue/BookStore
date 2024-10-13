@@ -1,8 +1,48 @@
 {
   "Files": [
     {
-      "Id": "C:\\Users\\clt\\source\\repos\\Bulky\\BulkyWeb\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\BulkyWeb.bundle.scp.css",
-      "PackagePath": "staticwebassets\\BulkyWeb.bundle.scp.css"
+      "Id": "C:\\Users\\clt\\source\\repos\\Bulky\\BulkyWeb\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\BulkyBookWeb.bundle.scp.css",
+      "PackagePath": "staticwebassets\\BulkyBookWeb.bundle.scp.css"
+    },
+    {
+      "Id": "C:\\Users\\clt\\source\\repos\\Bulky\\BulkyWeb\\wwwroot\\Images\\Product\\064515e1-88c1-45dd-ac76-be4802cf44b1.jpg",
+      "PackagePath": "staticwebassets\\Images\\Product\\064515e1-88c1-45dd-ac76-be4802cf44b1.jpg"
+    },
+    {
+      "Id": "C:\\Users\\clt\\source\\repos\\Bulky\\BulkyWeb\\wwwroot\\Images\\Product\\2e0ff65f-7425-4bb7-a631-da0bcf083224.png",
+      "PackagePath": "staticwebassets\\Images\\Product\\2e0ff65f-7425-4bb7-a631-da0bcf083224.png"
+    },
+    {
+      "Id": "C:\\Users\\clt\\source\\repos\\Bulky\\BulkyWeb\\wwwroot\\Images\\Product\\2f6b957b-4648-4e6e-aa5b-00c0aec895e1.jpg",
+      "PackagePath": "staticwebassets\\Images\\Product\\2f6b957b-4648-4e6e-aa5b-00c0aec895e1.jpg"
+    },
+    {
+      "Id": "C:\\Users\\clt\\source\\repos\\Bulky\\BulkyWeb\\wwwroot\\Images\\Product\\3de2f31d-4fbc-49b7-8971-db0a390b7df6.png",
+      "PackagePath": "staticwebassets\\Images\\Product\\3de2f31d-4fbc-49b7-8971-db0a390b7df6.png"
+    },
+    {
+      "Id": "C:\\Users\\clt\\source\\repos\\Bulky\\BulkyWeb\\wwwroot\\Images\\Product\\508b265d-e6bb-4901-81e2-02ea6cd52af5.png",
+      "PackagePath": "staticwebassets\\Images\\Product\\508b265d-e6bb-4901-81e2-02ea6cd52af5.png"
+    },
+    {
+      "Id": "C:\\Users\\clt\\source\\repos\\Bulky\\BulkyWeb\\wwwroot\\Images\\Product\\6f29b554-8564-4d99-b7a5-bf1e3d5153cd.png",
+      "PackagePath": "staticwebassets\\Images\\Product\\6f29b554-8564-4d99-b7a5-bf1e3d5153cd.png"
+    },
+    {
+      "Id": "C:\\Users\\clt\\source\\repos\\Bulky\\BulkyWeb\\wwwroot\\Images\\Product\\7969c449-6501-41a1-83f0-d741ff3cb901.jpg",
+      "PackagePath": "staticwebassets\\Images\\Product\\7969c449-6501-41a1-83f0-d741ff3cb901.jpg"
+    },
+    {
+      "Id": "C:\\Users\\clt\\source\\repos\\Bulky\\BulkyWeb\\wwwroot\\Images\\Product\\799a492e-fe0b-4ad5-b75e-e982a21babd5.jpg",
+      "PackagePath": "staticwebassets\\Images\\Product\\799a492e-fe0b-4ad5-b75e-e982a21babd5.jpg"
+    },
+    {
+      "Id": "C:\\Users\\clt\\source\\repos\\Bulky\\BulkyWeb\\wwwroot\\Images\\Product\\cc97db24-dd35-4cf9-99dc-c4b7f0918192.jpg",
+      "PackagePath": "staticwebassets\\Images\\Product\\cc97db24-dd35-4cf9-99dc-c4b7f0918192.jpg"
+    },
+    {
+      "Id": "C:\\Users\\clt\\source\\repos\\Bulky\\BulkyWeb\\wwwroot\\Images\\Product\\d2bc4ca2-a3c5-44d7-abfa-6d52c3e51698.jpg",
+      "PackagePath": "staticwebassets\\Images\\Product\\d2bc4ca2-a3c5-44d7-abfa-6d52c3e51698.jpg"
     },
     {
       "Id": "C:\\Users\\clt\\source\\repos\\Bulky\\BulkyWeb\\wwwroot\\bootstrap-icons\\bootstrap-icons.svg",
@@ -8233,6 +8273,170 @@
       "PackagePath": "staticwebassets\\css\\site.css"
     },
     {
+      "Id": "C:\\Users\\clt\\source\\repos\\Bulky\\BulkyWeb\\wwwroot\\datatables\\css\\dataTables.bootstrap.css",
+      "PackagePath": "staticwebassets\\datatables\\css\\dataTables.bootstrap.css"
+    },
+    {
+      "Id": "C:\\Users\\clt\\source\\repos\\Bulky\\BulkyWeb\\wwwroot\\datatables\\css\\dataTables.bootstrap.min.css",
+      "PackagePath": "staticwebassets\\datatables\\css\\dataTables.bootstrap.min.css"
+    },
+    {
+      "Id": "C:\\Users\\clt\\source\\repos\\Bulky\\BulkyWeb\\wwwroot\\datatables\\css\\dataTables.bootstrap4.css",
+      "PackagePath": "staticwebassets\\datatables\\css\\dataTables.bootstrap4.css"
+    },
+    {
+      "Id": "C:\\Users\\clt\\source\\repos\\Bulky\\BulkyWeb\\wwwroot\\datatables\\css\\dataTables.bootstrap4.min.css",
+      "PackagePath": "staticwebassets\\datatables\\css\\dataTables.bootstrap4.min.css"
+    },
+    {
+      "Id": "C:\\Users\\clt\\source\\repos\\Bulky\\BulkyWeb\\wwwroot\\datatables\\css\\dataTables.foundation.css",
+      "PackagePath": "staticwebassets\\datatables\\css\\dataTables.foundation.css"
+    },
+    {
+      "Id": "C:\\Users\\clt\\source\\repos\\Bulky\\BulkyWeb\\wwwroot\\datatables\\css\\dataTables.foundation.min.css",
+      "PackagePath": "staticwebassets\\datatables\\css\\dataTables.foundation.min.css"
+    },
+    {
+      "Id": "C:\\Users\\clt\\source\\repos\\Bulky\\BulkyWeb\\wwwroot\\datatables\\css\\dataTables.jqueryui.css",
+      "PackagePath": "staticwebassets\\datatables\\css\\dataTables.jqueryui.css"
+    },
+    {
+      "Id": "C:\\Users\\clt\\source\\repos\\Bulky\\BulkyWeb\\wwwroot\\datatables\\css\\dataTables.jqueryui.min.css",
+      "PackagePath": "staticwebassets\\datatables\\css\\dataTables.jqueryui.min.css"
+    },
+    {
+      "Id": "C:\\Users\\clt\\source\\repos\\Bulky\\BulkyWeb\\wwwroot\\datatables\\css\\dataTables.material.css",
+      "PackagePath": "staticwebassets\\datatables\\css\\dataTables.material.css"
+    },
+    {
+      "Id": "C:\\Users\\clt\\source\\repos\\Bulky\\BulkyWeb\\wwwroot\\datatables\\css\\dataTables.material.min.css",
+      "PackagePath": "staticwebassets\\datatables\\css\\dataTables.material.min.css"
+    },
+    {
+      "Id": "C:\\Users\\clt\\source\\repos\\Bulky\\BulkyWeb\\wwwroot\\datatables\\css\\dataTables.semanticui.css",
+      "PackagePath": "staticwebassets\\datatables\\css\\dataTables.semanticui.css"
+    },
+    {
+      "Id": "C:\\Users\\clt\\source\\repos\\Bulky\\BulkyWeb\\wwwroot\\datatables\\css\\dataTables.semanticui.min.css",
+      "PackagePath": "staticwebassets\\datatables\\css\\dataTables.semanticui.min.css"
+    },
+    {
+      "Id": "C:\\Users\\clt\\source\\repos\\Bulky\\BulkyWeb\\wwwroot\\datatables\\css\\dataTables.uikit.css",
+      "PackagePath": "staticwebassets\\datatables\\css\\dataTables.uikit.css"
+    },
+    {
+      "Id": "C:\\Users\\clt\\source\\repos\\Bulky\\BulkyWeb\\wwwroot\\datatables\\css\\dataTables.uikit.min.css",
+      "PackagePath": "staticwebassets\\datatables\\css\\dataTables.uikit.min.css"
+    },
+    {
+      "Id": "C:\\Users\\clt\\source\\repos\\Bulky\\BulkyWeb\\wwwroot\\datatables\\css\\jquery.dataTables.css",
+      "PackagePath": "staticwebassets\\datatables\\css\\jquery.dataTables.css"
+    },
+    {
+      "Id": "C:\\Users\\clt\\source\\repos\\Bulky\\BulkyWeb\\wwwroot\\datatables\\css\\jquery.dataTables.min.css",
+      "PackagePath": "staticwebassets\\datatables\\css\\jquery.dataTables.min.css"
+    },
+    {
+      "Id": "C:\\Users\\clt\\source\\repos\\Bulky\\BulkyWeb\\wwwroot\\datatables\\css\\jquery.dataTables_themeroller.css",
+      "PackagePath": "staticwebassets\\datatables\\css\\jquery.dataTables_themeroller.css"
+    },
+    {
+      "Id": "C:\\Users\\clt\\source\\repos\\Bulky\\BulkyWeb\\wwwroot\\datatables\\css\\jquery.dataTables_themeroller.min.css",
+      "PackagePath": "staticwebassets\\datatables\\css\\jquery.dataTables_themeroller.min.css"
+    },
+    {
+      "Id": "C:\\Users\\clt\\source\\repos\\Bulky\\BulkyWeb\\wwwroot\\datatables\\images\\sort_asc.png",
+      "PackagePath": "staticwebassets\\datatables\\images\\sort_asc.png"
+    },
+    {
+      "Id": "C:\\Users\\clt\\source\\repos\\Bulky\\BulkyWeb\\wwwroot\\datatables\\images\\sort_asc_disabled.png",
+      "PackagePath": "staticwebassets\\datatables\\images\\sort_asc_disabled.png"
+    },
+    {
+      "Id": "C:\\Users\\clt\\source\\repos\\Bulky\\BulkyWeb\\wwwroot\\datatables\\images\\sort_both.png",
+      "PackagePath": "staticwebassets\\datatables\\images\\sort_both.png"
+    },
+    {
+      "Id": "C:\\Users\\clt\\source\\repos\\Bulky\\BulkyWeb\\wwwroot\\datatables\\images\\sort_desc.png",
+      "PackagePath": "staticwebassets\\datatables\\images\\sort_desc.png"
+    },
+    {
+      "Id": "C:\\Users\\clt\\source\\repos\\Bulky\\BulkyWeb\\wwwroot\\datatables\\images\\sort_desc_disabled.png",
+      "PackagePath": "staticwebassets\\datatables\\images\\sort_desc_disabled.png"
+    },
+    {
+      "Id": "C:\\Users\\clt\\source\\repos\\Bulky\\BulkyWeb\\wwwroot\\datatables\\js\\dataTables.bootstrap.js",
+      "PackagePath": "staticwebassets\\datatables\\js\\dataTables.bootstrap.js"
+    },
+    {
+      "Id": "C:\\Users\\clt\\source\\repos\\Bulky\\BulkyWeb\\wwwroot\\datatables\\js\\dataTables.bootstrap.min.js",
+      "PackagePath": "staticwebassets\\datatables\\js\\dataTables.bootstrap.min.js"
+    },
+    {
+      "Id": "C:\\Users\\clt\\source\\repos\\Bulky\\BulkyWeb\\wwwroot\\datatables\\js\\dataTables.bootstrap4.js",
+      "PackagePath": "staticwebassets\\datatables\\js\\dataTables.bootstrap4.js"
+    },
+    {
+      "Id": "C:\\Users\\clt\\source\\repos\\Bulky\\BulkyWeb\\wwwroot\\datatables\\js\\dataTables.bootstrap4.min.js",
+      "PackagePath": "staticwebassets\\datatables\\js\\dataTables.bootstrap4.min.js"
+    },
+    {
+      "Id": "C:\\Users\\clt\\source\\repos\\Bulky\\BulkyWeb\\wwwroot\\datatables\\js\\dataTables.dataTables.js",
+      "PackagePath": "staticwebassets\\datatables\\js\\dataTables.dataTables.js"
+    },
+    {
+      "Id": "C:\\Users\\clt\\source\\repos\\Bulky\\BulkyWeb\\wwwroot\\datatables\\js\\dataTables.dataTables.min.js",
+      "PackagePath": "staticwebassets\\datatables\\js\\dataTables.dataTables.min.js"
+    },
+    {
+      "Id": "C:\\Users\\clt\\source\\repos\\Bulky\\BulkyWeb\\wwwroot\\datatables\\js\\dataTables.foundation.js",
+      "PackagePath": "staticwebassets\\datatables\\js\\dataTables.foundation.js"
+    },
+    {
+      "Id": "C:\\Users\\clt\\source\\repos\\Bulky\\BulkyWeb\\wwwroot\\datatables\\js\\dataTables.foundation.min.js",
+      "PackagePath": "staticwebassets\\datatables\\js\\dataTables.foundation.min.js"
+    },
+    {
+      "Id": "C:\\Users\\clt\\source\\repos\\Bulky\\BulkyWeb\\wwwroot\\datatables\\js\\dataTables.jqueryui.js",
+      "PackagePath": "staticwebassets\\datatables\\js\\dataTables.jqueryui.js"
+    },
+    {
+      "Id": "C:\\Users\\clt\\source\\repos\\Bulky\\BulkyWeb\\wwwroot\\datatables\\js\\dataTables.jqueryui.min.js",
+      "PackagePath": "staticwebassets\\datatables\\js\\dataTables.jqueryui.min.js"
+    },
+    {
+      "Id": "C:\\Users\\clt\\source\\repos\\Bulky\\BulkyWeb\\wwwroot\\datatables\\js\\dataTables.material.js",
+      "PackagePath": "staticwebassets\\datatables\\js\\dataTables.material.js"
+    },
+    {
+      "Id": "C:\\Users\\clt\\source\\repos\\Bulky\\BulkyWeb\\wwwroot\\datatables\\js\\dataTables.material.min.js",
+      "PackagePath": "staticwebassets\\datatables\\js\\dataTables.material.min.js"
+    },
+    {
+      "Id": "C:\\Users\\clt\\source\\repos\\Bulky\\BulkyWeb\\wwwroot\\datatables\\js\\dataTables.semanticui.js",
+      "PackagePath": "staticwebassets\\datatables\\js\\dataTables.semanticui.js"
+    },
+    {
+      "Id": "C:\\Users\\clt\\source\\repos\\Bulky\\BulkyWeb\\wwwroot\\datatables\\js\\dataTables.semanticui.min.js",
+      "PackagePath": "staticwebassets\\datatables\\js\\dataTables.semanticui.min.js"
+    },
+    {
+      "Id": "C:\\Users\\clt\\source\\repos\\Bulky\\BulkyWeb\\wwwroot\\datatables\\js\\dataTables.uikit.js",
+      "PackagePath": "staticwebassets\\datatables\\js\\dataTables.uikit.js"
+    },
+    {
+      "Id": "C:\\Users\\clt\\source\\repos\\Bulky\\BulkyWeb\\wwwroot\\datatables\\js\\dataTables.uikit.min.js",
+      "PackagePath": "staticwebassets\\datatables\\js\\dataTables.uikit.min.js"
+    },
+    {
+      "Id": "C:\\Users\\clt\\source\\repos\\Bulky\\BulkyWeb\\wwwroot\\datatables\\js\\jquery.dataTables.js",
+      "PackagePath": "staticwebassets\\datatables\\js\\jquery.dataTables.js"
+    },
+    {
+      "Id": "C:\\Users\\clt\\source\\repos\\Bulky\\BulkyWeb\\wwwroot\\datatables\\js\\jquery.dataTables.min.js",
+      "PackagePath": "staticwebassets\\datatables\\js\\jquery.dataTables.min.js"
+    },
+    {
       "Id": "C:\\Users\\clt\\source\\repos\\Bulky\\BulkyWeb\\wwwroot\\favicon.ico",
       "PackagePath": "staticwebassets\\favicon.ico"
     },
@@ -8485,20 +8689,20 @@
       "PackagePath": "staticwebassets\\toastr.js\\toastr.min.js"
     },
     {
-      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.BulkyWeb.Microsoft.AspNetCore.StaticWebAssets.props",
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.BulkyBookWeb.Microsoft.AspNetCore.StaticWebAssets.props",
       "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
     },
     {
-      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.build.BulkyWeb.props",
-      "PackagePath": "build\\BulkyWeb.props"
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.build.BulkyBookWeb.props",
+      "PackagePath": "build\\BulkyBookWeb.props"
     },
     {
-      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.buildMultiTargeting.BulkyWeb.props",
-      "PackagePath": "buildMultiTargeting\\BulkyWeb.props"
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.buildMultiTargeting.BulkyBookWeb.props",
+      "PackagePath": "buildMultiTargeting\\BulkyBookWeb.props"
     },
     {
-      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.buildTransitive.BulkyWeb.props",
-      "PackagePath": "buildTransitive\\BulkyWeb.props"
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.buildTransitive.BulkyBookWeb.props",
+      "PackagePath": "buildTransitive\\BulkyBookWeb.props"
     }
   ],
   "ElementsToRemove": []
