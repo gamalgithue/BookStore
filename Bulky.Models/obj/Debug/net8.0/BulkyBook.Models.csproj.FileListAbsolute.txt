@@ -1,6 +1,7 @@
 C:\Users\clt\source\repos\Bulky\Bulky.Models\bin\Debug\net8.0\BulkyBook.Models.deps.json
 C:\Users\clt\source\repos\Bulky\Bulky.Models\bin\Debug\net8.0\BulkyBook.Models.dll
 C:\Users\clt\source\repos\Bulky\Bulky.Models\bin\Debug\net8.0\BulkyBook.Models.pdb
+C:\Users\clt\source\repos\Bulky\Bulky.Models\obj\Debug\net8.0\BulkyBook.Models.csproj.AssemblyReference.cache
 C:\Users\clt\source\repos\Bulky\Bulky.Models\obj\Debug\net8.0\BulkyBook.Models.GeneratedMSBuildEditorConfig.editorconfig
 C:\Users\clt\source\repos\Bulky\Bulky.Models\obj\Debug\net8.0\BulkyBook.Models.AssemblyInfoInputs.cache
 C:\Users\clt\source\repos\Bulky\Bulky.Models\obj\Debug\net8.0\BulkyBook.Models.AssemblyInfo.cs
@@ -10,4 +11,3 @@ C:\Users\clt\source\repos\Bulky\Bulky.Models\obj\Debug\net8.0\BulkyBook.Models.d
 C:\Users\clt\source\repos\Bulky\Bulky.Models\obj\Debug\net8.0\refint\BulkyBook.Models.dll
 C:\Users\clt\source\repos\Bulky\Bulky.Models\obj\Debug\net8.0\BulkyBook.Models.pdb
 C:\Users\clt\source\repos\Bulky\Bulky.Models\obj\Debug\net8.0\ref\BulkyBook.Models.dll
-C:\Users\clt\source\repos\Bulky\Bulky.Models\obj\Debug\net8.0\BulkyBook.Models.csproj.AssemblyReference.cache

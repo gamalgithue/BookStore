@@ -17,8 +17,16 @@
       "PackagePath": "staticwebassets\\Images\\Product\\2f6b957b-4648-4e6e-aa5b-00c0aec895e1.jpg"
     },
     {
+      "Id": "C:\\Users\\clt\\source\\repos\\Bulky\\BulkyWeb\\wwwroot\\Images\\Product\\30fe5826-9b8d-4139-91fe-1a5ad80bbd2b.jpg",
+      "PackagePath": "staticwebassets\\Images\\Product\\30fe5826-9b8d-4139-91fe-1a5ad80bbd2b.jpg"
+    },
+    {
       "Id": "C:\\Users\\clt\\source\\repos\\Bulky\\BulkyWeb\\wwwroot\\Images\\Product\\3de2f31d-4fbc-49b7-8971-db0a390b7df6.png",
       "PackagePath": "staticwebassets\\Images\\Product\\3de2f31d-4fbc-49b7-8971-db0a390b7df6.png"
+    },
+    {
+      "Id": "C:\\Users\\clt\\source\\repos\\Bulky\\BulkyWeb\\wwwroot\\Images\\Product\\43792c68-69e5-4dbb-9687-94ab1bfaefad.jpg",
+      "PackagePath": "staticwebassets\\Images\\Product\\43792c68-69e5-4dbb-9687-94ab1bfaefad.jpg"
     },
     {
       "Id": "C:\\Users\\clt\\source\\repos\\Bulky\\BulkyWeb\\wwwroot\\Images\\Product\\508b265d-e6bb-4901-81e2-02ea6cd52af5.png",
@@ -37,12 +45,28 @@
       "PackagePath": "staticwebassets\\Images\\Product\\799a492e-fe0b-4ad5-b75e-e982a21babd5.jpg"
     },
     {
+      "Id": "C:\\Users\\clt\\source\\repos\\Bulky\\BulkyWeb\\wwwroot\\Images\\Product\\8c966595-c5f6-4671-a965-b607feb4414e.jpg",
+      "PackagePath": "staticwebassets\\Images\\Product\\8c966595-c5f6-4671-a965-b607feb4414e.jpg"
+    },
+    {
+      "Id": "C:\\Users\\clt\\source\\repos\\Bulky\\BulkyWeb\\wwwroot\\Images\\Product\\a4e3bced-e4ca-4fd7-9ede-42fdb4a8731f.jpg",
+      "PackagePath": "staticwebassets\\Images\\Product\\a4e3bced-e4ca-4fd7-9ede-42fdb4a8731f.jpg"
+    },
+    {
       "Id": "C:\\Users\\clt\\source\\repos\\Bulky\\BulkyWeb\\wwwroot\\Images\\Product\\cc97db24-dd35-4cf9-99dc-c4b7f0918192.jpg",
       "PackagePath": "staticwebassets\\Images\\Product\\cc97db24-dd35-4cf9-99dc-c4b7f0918192.jpg"
     },
     {
       "Id": "C:\\Users\\clt\\source\\repos\\Bulky\\BulkyWeb\\wwwroot\\Images\\Product\\d2bc4ca2-a3c5-44d7-abfa-6d52c3e51698.jpg",
       "PackagePath": "staticwebassets\\Images\\Product\\d2bc4ca2-a3c5-44d7-abfa-6d52c3e51698.jpg"
+    },
+    {
+      "Id": "C:\\Users\\clt\\source\\repos\\Bulky\\BulkyWeb\\wwwroot\\Images\\book.png",
+      "PackagePath": "staticwebassets\\Images\\book.png"
+    },
+    {
+      "Id": "C:\\Users\\clt\\source\\repos\\Bulky\\BulkyWeb\\wwwroot\\Images\\lawn_leaf.jpg",
+      "PackagePath": "staticwebassets\\Images\\lawn_leaf.jpg"
     },
     {
       "Id": "C:\\Users\\clt\\source\\repos\\Bulky\\BulkyWeb\\wwwroot\\bootstrap-icons\\bootstrap-icons.svg",

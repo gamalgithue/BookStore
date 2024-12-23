@@ -1,9 +1,11 @@
 ﻿using BulkyBook.Data;
+using BulkyBook.DataAccess.Repository;
 using BulkyBook.DataAccess.Repository.IRepository;
 using BulkyBook.Models;
 using BulkyBook.Models.ViewModels;
 using BulkyBook.Utility;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
@@ -145,82 +147,49 @@ namespace BulkyBookWeb.Areas.Admin.Controllers
 
         }
 
-        //[HttpGet]
-        //public async Task<IActionResult> Edit(int? id)
-        //{
-        //    if (id == null || id == 0)
-        //    {
-        //        return NotFound();
-        //    }
-        //    Product obj = await unitOfWork.Product.GetFirstOrDefaultAsync(x => x.Id == id);
-        //    if (obj == null)
-        //    {
-        //        return NotFound();
-        //    }
-
-        //    return View(obj);
-        //}
-        //[HttpPost]
-        //public async Task<IActionResult> Edit(Product obj)
-        //{
-
-        //    //if (obj.Name == obj.DisplayOrder.ToString())
-        //    //{
-        //    //    ModelState.AddModelError("name", "The Display Order Can't Exactly Match The Name");
-        //    //}
-        //    if (ModelState.IsValid)
-        //    {
-        //        await unitOfWork.Product.CreateOrUpdateAsync(obj);
-        //        await unitOfWork.Save();
-
-        //        TempData["Success"] = "Product Updated Successfully";
-
-        //    }
-
-
-        //    return RedirectToAction("Index");
-        //}
-
-        [HttpGet]
-        public async Task<IActionResult> Delete(int? id)
-        {
-            if (id == null || id == 0)
-            {
-                return NotFound();
-            }
-            Product obj = await unitOfWork.Product.GetFirstOrDefaultAsync(x => x.Id == id);
-
-            if (obj == null)
-            {
-                return NotFound();
-            }
-
-            return View(obj);
-        }
-        [HttpPost]
-        public async Task<IActionResult> Delete(Product obj)
-        {
-
-            await unitOfWork.Product.DeleteAsync(obj);
-
-            await unitOfWork.Save();
-
-            TempData["Success"] = "Product Deleted Successfully";
-
-            return RedirectToAction("Index");
-        }
+       
 
         #endregion
 
         #region API Calls
 
-       // [HttpGet]
-       // public async Task<IActionResult> GetAll()
-       //{
-       //     IEnumerable<Product> objProduct = await unitOfWork.Product.GetAsync(null, false, x => x.Category);
+        [HttpGet]
+        public async Task<IActionResult> GetAll()
+        {
+            IEnumerable<Product> objProduct = await unitOfWork.Product.GetAsync(null, false, x => x.Category);
 
-       //     return Json(new { data = objProduct });
-       // }
+            return Json(new { data = objProduct });
+        }
+
+        [HttpDelete]
+        public async Task<IActionResult> Delete(int? id)
+        {
+            var productToBeDeleted = await unitOfWork.Product.GetFirstOrDefaultAsync(u => u.Id == id);
+            if (productToBeDeleted == null)
+            {
+                return Json(new { success = false, message = "Error while deleting" });
+            }
+
+            string productPath = @"images\products\product-" + id;
+            string finalPath = Path.Combine(webHostEnvironment.WebRootPath, productPath);
+
+            if (Directory.Exists(finalPath))
+            {
+                string[] filePaths = Directory.GetFiles(finalPath);
+                foreach (string filePath in filePaths)
+                {
+                    System.IO.File.Delete(filePath);
+                }
+
+                Directory.Delete(finalPath);
+            }
+
+
+            await unitOfWork.Product.DeleteAsync(productToBeDeleted);
+            await unitOfWork.Save();
+
+            return Json(new { success = true, message = "Delete Successful" });
+        }
 
         #endregion
 

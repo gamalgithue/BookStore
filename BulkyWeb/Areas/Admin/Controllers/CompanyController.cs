@@ -1,4 +1,5 @@
-﻿using BulkyBook.DataAccess.Repository.IRepository;
+﻿using BulkyBook.DataAccess.Repository;
+using BulkyBook.DataAccess.Repository.IRepository;
 using BulkyBook.Models;
 using BulkyBook.Models.ViewModels;
 using BulkyBook.Utility;
@@ -13,36 +14,36 @@ namespace BulkyBookWeb.Areas.Admin.Controllers
     [Authorize(Roles = SD.Role_Adm)]
     public class CompanyController : Controller
     {
-        
-
-            #region prop
-            private readonly IUnitOfWork unitOfWork;
-
-            #endregion
 
 
-            #region Ctor
-            public CompanyController(IUnitOfWork _unitOfWork)
-            {
-                unitOfWork = _unitOfWork;
-            }
-            #endregion
+        #region prop
+        private readonly IUnitOfWork unitOfWork;
+
+        #endregion
 
 
-            #region Actions
-            public async Task<IActionResult> Index()
-            {
+        #region Ctor
+        public CompanyController(IUnitOfWork _unitOfWork)
+        {
+            unitOfWork = _unitOfWork;
+        }
+        #endregion
 
-                IEnumerable<Company> objCompany = await unitOfWork.Company.GetAsync();
 
-                return View(objCompany);
-            }
+        #region Actions
+        public async Task<IActionResult> Index()
+        {
+
+            IEnumerable<Company> objCompany = await unitOfWork.Company.GetAsync();
+
+            return View(objCompany);
+        }
 
         [HttpGet]
         public async Task<IActionResult> UpSert(int? id)
         {
 
-           
+
 
             if (id == null || id == 0)
             {
@@ -54,7 +55,7 @@ namespace BulkyBookWeb.Areas.Admin.Controllers
                 Company CompanyObj = await unitOfWork.Company.GetFirstOrDefaultAsync(x => x.Id == id);
                 return View(CompanyObj);
             }
-           
+
 
         }
         [HttpPost]
@@ -67,7 +68,7 @@ namespace BulkyBookWeb.Areas.Admin.Controllers
             //    ModelState.AddModelError("name", "The Display Order Can't Exactly Match The Name");
             //}
             if (ModelState.IsValid)
-            { 
+            {
                 await unitOfWork.Company.CreateOrUpdateAsync(obj);
                 await unitOfWork.Save();
                 if (isNewProduct)
@@ -85,45 +86,41 @@ namespace BulkyBookWeb.Areas.Admin.Controllers
             }
             else
             {
-              
+
                 return View(obj);
 
             }
 
 
         }
+
+        #endregion
+
+        #region API CALLS
 
         [HttpGet]
-            public async Task<IActionResult> Delete(int? id)
-            {
-                if (id == null || id == 0)
-                {
-                    return NotFound();
-                }
-                Company obj = await unitOfWork.Company.GetFirstOrDefaultAsync(x => x.Id == id);
-
-                if (obj == null)
-                {
-                    return NotFound();
-                }
-
-                return View(obj);
-            }
-            [HttpPost]
-            public async Task<IActionResult> Delete(Company obj)
-            {
-
-                await unitOfWork.Company.DeleteAsync(obj);
-
-                await unitOfWork.Save();
-
-                TempData["Success"] = "Company Deleted Successfully";
-
-                return RedirectToAction("Index");
-            }
-
-            #endregion
-
-
+        public async Task<IActionResult> GetAll()
+        {
+            var objCompanyList = await unitOfWork.Company.GetAsync();
+            return Json(new { data = objCompanyList });
         }
+
+
+        [HttpDelete]
+        public async Task<IActionResult> Delete(int? id)
+        {
+            var CompanyToBeDeleted = await unitOfWork.Company.GetFirstOrDefaultAsync(u => u.Id == id);
+            if (CompanyToBeDeleted == null)
+            {
+                return Json(new { success = false, message = "Error while deleting" });
+            }
+
+            await unitOfWork.Company.DeleteAsync(CompanyToBeDeleted);
+            await unitOfWork.Save();
+
+            return Json(new { success = true, message = "Delete Successful" });
+        }
+
+        #endregion
     }
+}

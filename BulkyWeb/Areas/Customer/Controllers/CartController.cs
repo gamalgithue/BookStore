@@ -1,8 +1,13 @@
-﻿using BulkyBook.DataAccess.Repository.IRepository;
+﻿using BulkyBook.DataAccess.Extend;
+using BulkyBook.DataAccess.Repository;
+using BulkyBook.DataAccess.Repository.IRepository;
 using BulkyBook.Models;
 using BulkyBook.Models.ViewModels;
+using BulkyBook.Utility;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Options;
+using Stripe.Checkout;
 using System.Security.Claims;
 
 namespace BulkyBookWeb.Areas.Customer.Controllers
@@ -12,6 +17,7 @@ namespace BulkyBookWeb.Areas.Customer.Controllers
     public class CartController : Controller
     {
         private readonly IUnitOfWork unitOfWork;
+        [BindProperty]
         public ShoppingCartVM ShoppingCartVM { get; set; }
         public CartController(IUnitOfWork unitOfWork)
         {
@@ -20,17 +26,19 @@ namespace BulkyBookWeb.Areas.Customer.Controllers
 
         public async Task<IActionResult> Index()
         {
-            var claimsIdentity = (ClaimsIdentity)User.Identity;
-            var userId = claimsIdentity.FindFirst(ClaimTypes.NameIdentifier).Value;
+            var claimsIdentity = (ClaimsIdentity?)User.Identity;
+            var userId = claimsIdentity?.FindFirst(ClaimTypes.NameIdentifier)?.Value;
 
             ShoppingCartVM = new()
             {
-                ShoppingCartList = await unitOfWork.ShoppingCart.GetAsync(x => x.ApplicationUserId == userId, false, x => x.Product)
+                ShoppingCartList = await unitOfWork.ShoppingCart.GetAsync(x => x.ApplicationUserId == userId, false, x => x.Product),
+                OrderHeader = new()
             };
-            foreach(var cart in ShoppingCartVM.ShoppingCartList)
+           
+            foreach (var cart in ShoppingCartVM.ShoppingCartList)
             {
                 cart.Price = GetPriceBasedOnQuantity(cart);
-                ShoppingCartVM.OrderTotal += (cart.Price * cart.Count);
+                ShoppingCartVM.OrderHeader.OrderTotal += (cart.Price * cart.Count);
             }
 
 
@@ -39,12 +47,152 @@ namespace BulkyBookWeb.Areas.Customer.Controllers
             
         }
 
-        public IActionResult Summary()
+        public async Task<IActionResult> Summary()
         {
-            return View();
+			var claimsIdentity = (ClaimsIdentity?)User.Identity;
+			var userId = claimsIdentity?.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+
+			ShoppingCartVM = new()
+			{
+				ShoppingCartList = await unitOfWork.ShoppingCart.GetAsync(x => x.ApplicationUserId == userId, false, x => x.Product),
+				OrderHeader = new()
+			};
+			ShoppingCartVM.OrderHeader.ApplicationUser = await unitOfWork.ApplicationUser.GetFirstOrDefaultAsync(x => x.Id == userId);
+			ShoppingCartVM.OrderHeader.Name = ShoppingCartVM.OrderHeader.ApplicationUser.Name;
+			ShoppingCartVM.OrderHeader.PhoneNumber = ShoppingCartVM.OrderHeader.ApplicationUser.PhoneNumber;
+			ShoppingCartVM.OrderHeader.StreetAddress = ShoppingCartVM.OrderHeader.ApplicationUser.StreetAddress;
+			ShoppingCartVM.OrderHeader.City = ShoppingCartVM.OrderHeader.ApplicationUser.City;
+			ShoppingCartVM.OrderHeader.State = ShoppingCartVM.OrderHeader.ApplicationUser.State;
+			ShoppingCartVM.OrderHeader.PostalCode = ShoppingCartVM.OrderHeader.ApplicationUser.PostalCode;
+			foreach (var cart in ShoppingCartVM.ShoppingCartList)
+			{
+				cart.Price = GetPriceBasedOnQuantity(cart);
+				ShoppingCartVM.OrderHeader.OrderTotal += (cart.Price * cart.Count);
+			}
+
+
+			return View(ShoppingCartVM);
+		}
+
+        [HttpPost]
+        [ActionName("Summary")]
+		public async Task<IActionResult> SummaryPost()
+		{
+			var claimsIdentity = (ClaimsIdentity?)User?.Identity;
+			var userId = claimsIdentity?.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+
+            ShoppingCartVM.ShoppingCartList = await unitOfWork.ShoppingCart.GetAsync(x => x.ApplicationUserId == userId, false, x => x.Product);
+            ShoppingCartVM.OrderHeader.OrderDate = System.DateTime.Now;
+
+			ShoppingCartVM.OrderHeader.ApplicationUserId = userId;
+
+
+			ApplicationUser user = await unitOfWork.ApplicationUser.GetFirstOrDefaultAsync(x => x.Id == userId);
+		
+			foreach (var cart in ShoppingCartVM.ShoppingCartList)
+			{
+				cart.Price = GetPriceBasedOnQuantity(cart);
+				ShoppingCartVM.OrderHeader.OrderTotal += (cart.Price * cart.Count);
+			}
+
+            if (user.CompanyId.GetValueOrDefault() == 0)
+            {
+                ShoppingCartVM.OrderHeader.PaymentStatus = SD.PaymentStatusPending;
+                ShoppingCartVM.OrderHeader.OrderStatus = SD.StatusPending;
+            }
+            else
+            {
+                ShoppingCartVM.OrderHeader.PaymentStatus = SD.PaymentStatusDelayedPayment;
+                ShoppingCartVM.OrderHeader.OrderStatus = SD.StatusApproved;
+            }
+            await unitOfWork.OrderHeader.CreateOrUpdateAsync(ShoppingCartVM.OrderHeader);
+             await unitOfWork.Save();
+            foreach(var cart in ShoppingCartVM.ShoppingCartList)
+            {
+                OrderDetail orderDetail = new()
+                {
+                    ProductId = cart.ProductId,
+                    OrderHeaderId = ShoppingCartVM.OrderHeader.Id,
+                    Count = cart.Count,
+                    Price = cart.Price
+
+                };
+                await unitOfWork.OrderDetail.CreateOrUpdateAsync(orderDetail);
+                await unitOfWork.Save();
+            }
+
+			if (user.CompanyId.GetValueOrDefault() == 0)
+			{
+                var domain = "https://localhost:7166/";
+                var options = new SessionCreateOptions
+                {
+                    SuccessUrl=domain+$"customer/cart/OrderConfirmation?id={ShoppingCartVM.OrderHeader.Id}",
+                    CancelUrl=domain+$"customer/cart/index",
+                    LineItems = new List<SessionLineItemOptions>(),
+                    
+                    
+                    Mode = "payment",
+                
+
+                };
+                foreach (var item in ShoppingCartVM.ShoppingCartList)
+                {
+                    var sessionLineItem = new SessionLineItemOptions
+                    {
+                        PriceData = new SessionLineItemPriceDataOptions
+                        {
+                            UnitAmount = (long)(item.Price * 100), // $20.50 => 2050
+                            Currency = "usd",
+                            ProductData = new SessionLineItemPriceDataProductDataOptions
+                            {
+                                Name = item.Product.Title
+                            }
+                        },
+                        Quantity = item.Count
+                    };
+                    options.LineItems.Add(sessionLineItem);
+                }
+                var service = new SessionService();
+                Session session = service.Create(options);
+                await unitOfWork.OrderHeader.UpdateStripePaymentID(ShoppingCartVM.OrderHeader.Id, session.Id, session.PaymentIntentId);
+                await unitOfWork.Save();
+                Response.Headers.Add("Location", session.Url);
+                return new StatusCodeResult(303);
+
+
+
+
+            }
+			return RedirectToAction(nameof(OrderConfirmation), new { id = ShoppingCartVM.OrderHeader.Id });
+		}
+        public async Task<ActionResult>  OrderConfirmation(int id)
+        {
+            OrderHeader orderHeader = await unitOfWork.OrderHeader.GetFirstOrDefaultAsync(x => x.Id == id,false,x=> x.ApplicationUser);
+            if (orderHeader.PaymentStatus != SD.PaymentStatusDelayedPayment)
+            {
+                //this is an order by customer
+
+                var service = new SessionService();
+                Session session = service.Get(orderHeader.SessionId);
+
+                if (session.PaymentStatus.ToLower() == "paid")
+                {
+                    await unitOfWork.OrderHeader.UpdateStripePaymentID(id, session.Id, session.PaymentIntentId);
+                    await unitOfWork.OrderHeader.UpdateStatus(id, SD.StatusApproved, SD.PaymentStatusApproved);
+                    await unitOfWork.Save();
+                }
+
+            }
+            var shoppingCarts = await unitOfWork.ShoppingCart
+               .GetAsync(u => u.ApplicationUserId == orderHeader.ApplicationUserId);
+
+            await unitOfWork.ShoppingCart.DeleteRangeAsync(shoppingCarts);
+           await unitOfWork.Save();
+            return View(id);
         }
 
-        public async Task<IActionResult> Plus(int cartId)
+		#region Calculate The Count
+		public async Task<IActionResult> Plus(int cartId)
         {
             var cartDb = await unitOfWork.ShoppingCart.GetFirstOrDefaultAsync(x => x.Id == cartId);
             cartDb.Count += 1;
@@ -58,6 +206,8 @@ namespace BulkyBookWeb.Areas.Customer.Controllers
             if (cartDb.Count <= 1)
             {
                 await unitOfWork.ShoppingCart.DeleteAsync(cartDb);
+
+
 
             }
             else
@@ -97,6 +247,8 @@ namespace BulkyBookWeb.Areas.Customer.Controllers
                 }
             }
         }
-    }
+
+		#endregion
+	}
 }
 

@@ -108,12 +108,10 @@ namespace BulkyBook.DataAccess.Repository
             if (existingEntity != null)
             {
                 db.Entry(existingEntity).CurrentValues.SetValues(entity); // edit
-                await db.SaveChangesAsync();
             }
             else
             {
                 await dbSet.AddAsync(entity); // add
-                await db.SaveChangesAsync();
             }
 
         }
@@ -124,7 +122,6 @@ namespace BulkyBook.DataAccess.Repository
 
             // if delete
             dbSet.Remove(entity);
-            await db.SaveChangesAsync();
         }
         public object[] GetKeyValues(TEntity entity)
         {
@@ -132,6 +129,11 @@ namespace BulkyBook.DataAccess.Repository
             var key = entityType.FindPrimaryKey();
             var keyValues = key.Properties.Select(p => p.PropertyInfo.GetValue(entity)).ToArray();
             return keyValues;
+        }
+
+        public async Task DeleteRangeAsync(IEnumerable<TEntity> entity)
+        {
+             dbSet.RemoveRange(entity);
         }
 
         #endregion

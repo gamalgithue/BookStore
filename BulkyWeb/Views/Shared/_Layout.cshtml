@@ -12,6 +12,9 @@
      <link href="~/bootstrap-icons/font/bootstrap-icons.min.css" rel="stylesheet" />
            <link href="~/toastr.js/toastr.min.css" rel="stylesheet" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+        <link rel="stylesheet" href="//cdn.datatables.net/1.13.3/css/jquery.dataTables.min.css" />
+
+
  
 
 </head>
@@ -31,7 +34,7 @@
                         </li>
                        
                         <li class="nav-item">
-                            <a class="nav-link" asp-area="Customer" asp-controller="Home" asp-action="Privacy">Privacy</a>
+                            <a class="nav-link" asp-area="Admin" asp-controller="Order" asp-action="Index">Manage Orders</a>
                         </li>
                           @if (User.IsInRole(SD.Role_Adm))
                         {
@@ -84,12 +87,13 @@
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
 
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-@*     <script src="//cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
- *@    <script src="~/js/site.js" asp-append-version="true"></script>
-    <script src="https://cdn.tiny.cloud/1/zktunz5h30u6r7bh26orf0q609nbru9fpsw04gs5kisq91mr/tinymce/7/tinymce.min.js" referrerpolicy="origin"></script>
+   <script src="~/js/site.js" asp-append-version="true"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
-   @*  <script src="~/datatables/js/jquery.datatables.js"></script>
-    <script src="~/datatables/js/jquery.datatables.min.js"></script> *@
+     <script src="//cdn.datatables.net/1.13.3/js/jquery.dataTables.min.js" asp-append-version="true"></script>
+
+    <script src="https://cdn.tiny.cloud/1/qd1iwwglhna1d8428d3vcgmsxl20spm7st9vbz77o1rb9q9w/tinymce/7/tinymce.min.js" referrerpolicy="origin"></script>
+
 
     @await RenderSectionAsync("Scripts", required: false)
 </body>

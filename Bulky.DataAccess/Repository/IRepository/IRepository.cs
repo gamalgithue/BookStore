@@ -24,6 +24,8 @@ namespace BulkyBook.DataAccess.Repository
         public Task DeleteAsync(TEntity entity);
         public object[] GetKeyValues(TEntity entity);
 
+        public Task DeleteRangeAsync(IEnumerable<TEntity> entity);
+
     
 }
 }

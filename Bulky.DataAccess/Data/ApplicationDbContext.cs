@@ -110,7 +110,7 @@ namespace BulkyBook.Data
                 },
                 new Product
                 {
-                    Id = 4,
+                    Id = 7,
                     Title = "Cotton Candy",
                     Author = "Abby Muscles",
                     Description = "Praesent vitae sodales libero. Praesent molestie orci augue, vitae euismod velit sollicitudin ac. Praesent vestibulum facilisis nibh ut ultricies.\r\n\r\nNunc malesuada viverra ipsum sit amet tincidunt. ",
@@ -161,6 +161,11 @@ namespace BulkyBook.Data
         public DbSet<ShoppingCart> ShoppingCarts { get; set; }
 
         public DbSet<ApplicationUser> ApplicationUsers { get; set; }
+        public DbSet<OrderDetail> OrderDetails { get; set; }
+        public DbSet<OrderHeader> OrderHeaders { get; set; }
+
+
+
 
 
 
