@@ -19,6 +19,12 @@ namespace BulkyBook.DataAccess.Repository
             this.db = db;
         }
 
+        public async  Task Update(OrderHeader orderHeader)
+        {
+             db.OrderHeaders.Update(orderHeader);
+            
+        }
+
         public async Task UpdateStatus(int id, string orderStatus, string? paymentStatus = null)
         {
             var ordfrdb = await db.OrderHeaders.FirstOrDefaultAsync(x => x.Id == id);
