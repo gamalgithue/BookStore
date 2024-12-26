@@ -13,7 +13,6 @@ namespace BulkyBook.DataAccess.Repository.IRepository
         public Task UpdateStatus(int id, string orderStatus, string? paymentStatus = null);
         public Task UpdateStripePaymentID(int id, string sessionId , string paymentIntentId );
 
-        public Task Update(OrderHeader orderHeader);
 
 
 

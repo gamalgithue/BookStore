@@ -68,14 +68,14 @@ namespace BulkyBookWeb.Areas.Admin.Controllers
                 orderHeaderFroDb.TrackingNumber = OrderVM.OrderHeader.TrackingNumber;
 
             }
-            await unitOfWork.OrderHeader.Update(orderHeaderFroDb);
+            await unitOfWork.OrderHeader.CreateOrUpdateAsync(orderHeaderFroDb);
 
             await unitOfWork.Save();
            
 
             TempData["Success"] = "OrderDeatils Updated Successfully";
 
-            return RedirectToAction(nameof(Details), new { orderiId = orderHeaderFroDb.Id });
+            return RedirectToAction(nameof(Details), new { orderId = orderHeaderFroDb.Id });
 
 
         }
@@ -103,7 +103,7 @@ namespace BulkyBookWeb.Areas.Admin.Controllers
                 orderHeader.PaymentDueDate = DateTime.Now.AddDays(30);
             }
 
-            await unitOfWork.OrderHeader.Update(orderHeader);
+            await unitOfWork.OrderHeader.CreateOrUpdateAsync(orderHeader);
             await unitOfWork.Save();
             TempData["Success"] = "Order Shipped Successfully.";
             return RedirectToAction(nameof(Details), new { orderId = OrderVM.OrderHeader.Id });
