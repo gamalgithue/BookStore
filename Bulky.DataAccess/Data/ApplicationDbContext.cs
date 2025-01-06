@@ -1,17 +1,20 @@
 ﻿using BulkyBook.DataAccess.Extend;
 using BulkyBook.Models;
+using BulkyBook.Utility;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
 
 namespace BulkyBook.Data
 {
     public class ApplicationDbContext:IdentityDbContext<IdentityUser>
     {
+        private readonly IConfiguration configuration;
 
-        public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options):base(options)
+        public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options,IConfiguration _configuration):base(options)
         {
-            
+            this.configuration = _configuration;
         }
         //protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         //{
@@ -153,7 +156,13 @@ namespace BulkyBook.Data
                     ImgaeUrl = ""
 
                 } );
+
+
+
+          
+
         }
+
         public DbSet<Category> Categories { get; set; }
         public DbSet<Product> Products { get; set; }
         public DbSet<Company> Companies { get; set; }

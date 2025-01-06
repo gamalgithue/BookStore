@@ -5,6 +5,7 @@ using BulkyBook.Models;
 using BulkyBook.Models.ViewModels;
 using BulkyBook.Utility;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity.UI.Services;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Options;
 using Stripe.Checkout;
@@ -17,11 +18,14 @@ namespace BulkyBookWeb.Areas.Customer.Controllers
     public class CartController : Controller
     {
         private readonly IUnitOfWork unitOfWork;
+        private readonly IEmailSender emailSender;
+
         [BindProperty]
         public ShoppingCartVM ShoppingCartVM { get; set; }
-        public CartController(IUnitOfWork unitOfWork)
+        public CartController(IUnitOfWork unitOfWork,IEmailSender emailSender)
         {
             this.unitOfWork = unitOfWork;
+            this.emailSender = emailSender;
         }
 
         public async Task<IActionResult> Index()
@@ -123,7 +127,7 @@ namespace BulkyBookWeb.Areas.Customer.Controllers
 
 			if (user.CompanyId.GetValueOrDefault() == 0)
 			{
-                var domain = "https://localhost:7166/";
+                var domain = Request.Scheme + "://" + Request.Host.Value + "/";
                 var options = new SessionCreateOptions
                 {
                     SuccessUrl=domain+$"customer/cart/OrderConfirmation?id={ShoppingCartVM.OrderHeader.Id}",
@@ -181,8 +185,11 @@ namespace BulkyBookWeb.Areas.Customer.Controllers
                     await unitOfWork.OrderHeader.UpdateStatus(id, SD.StatusApproved, SD.PaymentStatusApproved);
                     await unitOfWork.Save();
                 }
+                HttpContext.Session.Clear();
 
             }
+           await emailSender.SendEmailAsync(orderHeader.ApplicationUser.Email, "New Order - Bulky Book",
+               $"<p>New Order Created - {orderHeader.Id}</p>");
             var shoppingCarts = await unitOfWork.ShoppingCart
                .GetAsync(u => u.ApplicationUserId == orderHeader.ApplicationUserId);
 
@@ -205,8 +212,11 @@ namespace BulkyBookWeb.Areas.Customer.Controllers
             var cartDb = await unitOfWork.ShoppingCart.GetFirstOrDefaultAsync(x => x.Id == cartId);
             if (cartDb.Count <= 1)
             {
-                await unitOfWork.ShoppingCart.DeleteAsync(cartDb);
+                HttpContext.Session.SetInt32(SD.SessionCart,
+                 (await unitOfWork.ShoppingCart.GetAsync(u => u.ApplicationUserId == cartDb.ApplicationUserId)).Count() - 1);
 
+                await unitOfWork.ShoppingCart.DeleteAsync(cartDb);
+                
 
 
             }
@@ -223,6 +233,9 @@ namespace BulkyBookWeb.Areas.Customer.Controllers
         {
             var cartDb = await unitOfWork.ShoppingCart.GetFirstOrDefaultAsync(x => x.Id == cartId);
             await unitOfWork.ShoppingCart.DeleteAsync(cartDb);
+            HttpContext.Session.SetInt32(SD.SessionCart,
+                  (await unitOfWork.ShoppingCart.GetAsync(u => u.ApplicationUserId == cartDb.ApplicationUserId)).Count()-1);
+
             await unitOfWork.Save();
             return RedirectToAction(nameof(Index));
         }

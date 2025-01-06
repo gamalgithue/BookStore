@@ -88,6 +88,7 @@ C:\Users\clt\source\repos\Bulky\BulkyWeb\bin\Debug\net8.0\NuGet.Versioning.dll
 C:\Users\clt\source\repos\Bulky\BulkyWeb\bin\Debug\net8.0\SQLitePCLRaw.batteries_v2.dll
 C:\Users\clt\source\repos\Bulky\BulkyWeb\bin\Debug\net8.0\SQLitePCLRaw.core.dll
 C:\Users\clt\source\repos\Bulky\BulkyWeb\bin\Debug\net8.0\SQLitePCLRaw.provider.e_sqlite3.dll
+C:\Users\clt\source\repos\Bulky\BulkyWeb\bin\Debug\net8.0\Stripe.net.dll
 C:\Users\clt\source\repos\Bulky\BulkyWeb\bin\Debug\net8.0\System.CodeDom.dll
 C:\Users\clt\source\repos\Bulky\BulkyWeb\bin\Debug\net8.0\System.Composition.AttributedModel.dll
 C:\Users\clt\source\repos\Bulky\BulkyWeb\bin\Debug\net8.0\System.Composition.Convention.dll
@@ -300,4 +301,6 @@ C:\Users\clt\source\repos\Bulky\BulkyWeb\obj\Debug\net8.0\refint\BulkyBookWeb.dl
 C:\Users\clt\source\repos\Bulky\BulkyWeb\obj\Debug\net8.0\BulkyBookWeb.pdb
 C:\Users\clt\source\repos\Bulky\BulkyWeb\obj\Debug\net8.0\BulkyBookWeb.genruntimeconfig.cache
 C:\Users\clt\source\repos\Bulky\BulkyWeb\obj\Debug\net8.0\ref\BulkyBookWeb.dll
-C:\Users\clt\source\repos\Bulky\BulkyWeb\bin\Debug\net8.0\Stripe.net.dll
+C:\Users\clt\source\repos\Bulky\BulkyWeb\bin\Debug\net8.0\Microsoft.AspNetCore.Authentication.Facebook.dll
+C:\Users\clt\source\repos\Bulky\BulkyWeb\bin\Debug\net8.0\SendGrid.dll
+C:\Users\clt\source\repos\Bulky\BulkyWeb\bin\Debug\net8.0\StarkbankEcdsa.dll

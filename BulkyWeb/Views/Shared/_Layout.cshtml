@@ -1,4 +1,6 @@
-﻿<!DOCTYPE html>
+﻿@using Microsoft.AspNetCore.Http
+@inject IHttpContextAccessor HttpContextAccessor
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8" />
@@ -6,9 +8,7 @@
     <title>BulkyBookWeb</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
     <link rel="stylesheet" href="~/BulkyBookWeb.styles.css" asp-append-version="true" />
-    @* <link rel="stylesheet" href="//cdn.datatables.net/1.13.6/css/jquery.dataTables.min.css" />
-    <link href="~/datatables/css/datatables.bootstrap.css" rel="stylesheet" />
-    <link href="~/datatables/css/datatables.bootstrap.min.css" rel="stylesheet" /> *@
+   
      <link href="~/bootstrap-icons/font/bootstrap-icons.min.css" rel="stylesheet" />
            <link href="~/toastr.js/toastr.min.css" rel="stylesheet" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
@@ -46,23 +46,31 @@
                                     <li class="nav-item">
                                         <a class="nav-link text-dark" asp-area="Admin" asp-controller="Category" asp-action="Index">Category</a>
                                     </li>
-                                    <li><hr class="dropdown-divider"></li>
+                                    
                                     <li class="nav-item">
                                         <a class="nav-link text-dark" asp-area="Admin" asp-controller="Product" asp-action="Index">Product</a>
                                     </li>
                                     <li class="nav-item">
                                         <a class="nav-link text-dark" asp-area="Admin" asp-controller="Company" asp-action="Index">Company</a>
                                     </li>
+                                    <li><hr class="dropdown-divider"></li>
+                                    <li class="nav-item">
+                                        <a class="nav-link text-dark" asp-area="Identity"  asp-page="/Account/Register">Create User</a>
+                                    </li>
                                 </ul>
 
                             </li>
                         }
-                        <li class="nav-item">
-                            <a class="nav-link" asp-area="Customer" asp-controller="Cart" asp-action="Index">
-                                <i class="bi bi-cart"></i>&nbsp;
+                      
+                        
+                           <li class="nav-item">
+                                <a class="nav-link" asp-area="Customer" asp-controller="Cart" asp-action="Index">
+                                   @await Component.InvokeAsync("ShoppingCart")
                                 </a>
-                        </li>
+                            </li>
+                        
                     </ul>
+                        
                         
                         <partial name="_LoginPartial" />
                 </div>

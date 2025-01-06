@@ -15,7 +15,7 @@ namespace BulkyBookWeb.Areas.Admin.Controllers
 {
 
     [Area("Admin")]
-    [Authorize]
+    [Authorize(Roles =SD.Role_Adm)]
     public class OrderController : Controller
     {
         private readonly IUnitOfWork unitOfWork;
@@ -144,7 +144,7 @@ namespace BulkyBookWeb.Areas.Admin.Controllers
         {
             OrderVM.OrderHeader = await unitOfWork.OrderHeader.GetFirstOrDefaultAsync(x => x.Id == OrderVM.OrderHeader.Id, false, x => x.ApplicationUser);
             OrderVM.OrderDetial = await unitOfWork.OrderDetail.GetAsync(x => x.OrderHeaderId == OrderVM.OrderHeader.Id, false, x => x.Product);
-               var domain = "https://localhost:7166/";
+               var domain = Request.Scheme + "://" + Request.Host.Value + "/";
             var options = new SessionCreateOptions
             {
                 SuccessUrl = domain + $"admin/order/PaymentConfirmation?orderHeaderId={OrderVM.OrderHeader.Id}",

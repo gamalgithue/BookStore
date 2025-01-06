@@ -1,6 +1,8 @@
 using BulkyBook.DataAccess.Repository;
 using BulkyBook.DataAccess.Repository.IRepository;
 using BulkyBook.Models;
+using BulkyBook.Models.ViewModels;
+using BulkyBook.Utility;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
@@ -22,6 +24,8 @@ namespace BulkyBookWeb.Areas.Customer.Controllers
 
         public async Task<IActionResult> Index()
         {
+           
+
 
             IEnumerable<Product> objProduct = await unitofwork.Product.GetAsync(null, false, x => x.Category);
 
@@ -52,8 +56,8 @@ namespace BulkyBookWeb.Areas.Customer.Controllers
 
 
 
-            var claimsIdentity = (ClaimsIdentity)User.Identity;
-            var userId = claimsIdentity.FindFirst(ClaimTypes.NameIdentifier).Value;
+            var claimsIdentity = (ClaimsIdentity?)User.Identity;
+            var userId = claimsIdentity?.FindFirst(ClaimTypes.NameIdentifier)?.Value;
             shoppingCart.ApplicationUserId = userId;
             ShoppingCart CartFromDb = await unitofwork.ShoppingCart.GetFirstOrDefaultAsync(x => x.ApplicationUserId == userId && x.ProductId == shoppingCart.ProductId);
 
@@ -61,19 +65,23 @@ namespace BulkyBookWeb.Areas.Customer.Controllers
             {
                 CartFromDb.Count += shoppingCart.Count;
                 await unitofwork.ShoppingCart.CreateOrUpdateAsync(CartFromDb);
-                TempData["Success"] = "Cart Updated Successfully";
+                await unitofwork.Save();
+
 
             }
             else
             {
                 await unitofwork.ShoppingCart.CreateOrUpdateAsync(shoppingCart);
-                TempData["Success"] = "Cart Added Successfully";
+                await unitofwork.Save();
+                HttpContext.Session.SetInt32(SD.SessionCart,
+                   (await unitofwork.ShoppingCart.GetAsync(u => u.ApplicationUserId == userId)).Count());
+
 
 
             }
+            TempData["Success"] = "Cart Updated Successfully";
 
 
-            await unitofwork.Save();
 
             return RedirectToAction("Index");
         }

@@ -8,6 +8,10 @@ using Microsoft.Extensions.DependencyInjection;
 using BulkyBook.Utility;
 using Microsoft.AspNetCore.Identity.UI.Services;
 using Stripe;
+using BulkyBook.DataAccess.Data;
+using BulkyBook.DataAccess.Migrations;
+using System.Configuration;
+using BulkyBook.DataAccess.Extend;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -29,8 +33,13 @@ builder.Services.Configure<StripeSettings>(builder.Configuration.GetSection("Str
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
 options.UseSqlServer(connectionstring));
 
-builder.Services.AddIdentity<IdentityUser, IdentityRole>().AddEntityFrameworkStores<ApplicationDbContext>().AddDefaultTokenProviders();
+builder.Services.AddIdentity<IdentityUser, IdentityRole>(options =>
+    options.SignIn.RequireConfirmedAccount = true)
+    .AddEntityFrameworkStores<ApplicationDbContext>()
+    .AddDefaultTokenProviders()
+    .AddRoles<IdentityRole>();
 builder.Services.AddScoped<IEmailSender, EmailSender>();
+builder.Services.AddScoped<SeedData>();
 
 builder.Services.AddRazorPages();
 
@@ -42,12 +51,43 @@ builder.Services.ConfigureApplicationCookie(options =>
 
 
 });
+builder.Services.AddAuthentication().AddFacebook(
+    options =>
+    {
+        options.AppId = builder.Configuration["ExternalLogins:Facebook:AppId"];
+        options.AppSecret = builder.Configuration["ExternalLogins:Facebook:AppSecret"];
+
+    });
+
+builder.Services.AddDistributedMemoryCache();
+builder.Services.AddSession(ops =>
+{
+    ops.IdleTimeout = TimeSpan.FromMinutes(100);
+    ops.Cookie.HttpOnly = true;
+    ops.Cookie.IsEssential = true;
+
+
+});
+
+
 #endregion
 
 
 var app = builder.Build();
 
+using (var scope = app.Services.CreateScope())
+{
+    var seedData = scope.ServiceProvider.GetRequiredService<SeedData>();
 
+    // Retrieve users config from the configuration
+    var usersConfig = builder.Configuration.GetSection("Users").Get<List<UserConfig>>();
+
+    // Seed roles and users
+    if (usersConfig != null && usersConfig.Any())
+    {
+        await seedData.SeedRolesAndUsersAsync(usersConfig);
+    }
+}
 
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())
@@ -65,6 +105,7 @@ app.UseRouting();
 app.UseAuthentication();
 
 app.UseAuthorization();
+app.UseSession();
 app.MapRazorPages();
 
 app.MapControllerRoute(
