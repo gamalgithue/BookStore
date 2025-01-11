@@ -43,9 +43,10 @@ namespace BulkyBookWeb.Areas.Customer.Controllers
                 ShoppingCartList = await unitOfWork.ShoppingCart.GetAsync(x => x.ApplicationUserId == userId, false, x => x.Product),
                 OrderHeader = new()
             };
-           
+            var productimages = await unitOfWork.ProductImage.GetAsync();
             foreach (var cart in ShoppingCartVM.ShoppingCartList)
             {
+                cart.Product.ProductImages =  productimages.Where(x => x.ProductId == cart.ProductId).ToList();
                 cart.Price = GetPriceBasedOnQuantity(cart);
                 ShoppingCartVM.OrderHeader.OrderTotal += (cart.Price * cart.Count);
             }

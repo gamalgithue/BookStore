@@ -10,6 +10,8 @@ namespace BulkyBook.DataAccess.Repository.IRepository
    public interface IProductRepository:IRepository<Product>
     {
 
+        public Task Update(Product product);
+
        
     }
 }

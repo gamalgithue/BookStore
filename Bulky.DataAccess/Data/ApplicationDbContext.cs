@@ -80,13 +80,13 @@ namespace BulkyBook.Data
                     Price = 90,
                     Price50 = 85,
                     Price100 = 80,
-                    CategoryId=1,
-                    ImgaeUrl=""
+                    CategoryId=1
+                  
                     
                 },
                 new Product
                 {
-                    Id = 2,
+                    Id = 8,
                     Title = "Dark Skies",
                     Author = "Nancy Hoover",
                     Description = "Praesent vitae sodales libero. Praesent molestie orci augue, vitae euismod velit sollicitudin ac. Praesent vestibulum facilisis nibh ut ultricies.\r\n\r\nNunc malesuada viverra ipsum sit amet tincidunt. ",
@@ -95,8 +95,8 @@ namespace BulkyBook.Data
                     Price = 30,
                     Price50 = 25,
                     Price100 = 20,
-                    CategoryId = 2,
-                    ImgaeUrl = ""
+                    CategoryId = 2
+                  
 
                 },
                 new Product
@@ -110,9 +110,8 @@ namespace BulkyBook.Data
                     Price = 50,
                     Price50 = 40,
                     Price100 = 35,
-                    CategoryId = 2,
-                    ImgaeUrl = ""
-
+                    CategoryId = 2
+                   
                 },
                 new Product
                 {
@@ -125,8 +124,8 @@ namespace BulkyBook.Data
                     Price = 65,
                     Price50 = 60,
                     Price100 = 55,
-                    CategoryId = 3,
-                    ImgaeUrl = ""
+                    CategoryId = 3
+                  
 
                 },
                 new Product
@@ -140,8 +139,8 @@ namespace BulkyBook.Data
                     Price = 27,
                     Price50 = 25,
                     Price100 = 20,
-                    CategoryId = 3,
-                    ImgaeUrl = ""
+                    CategoryId = 3
+                 
 
                 },
                 new Product
@@ -155,8 +154,8 @@ namespace BulkyBook.Data
                     Price = 23,
                     Price50 = 22,
                     Price100 = 20,
-                    CategoryId = 2,
-                    ImgaeUrl = ""
+                    CategoryId = 2
+                   
 
                 } );
 
@@ -169,6 +168,9 @@ namespace BulkyBook.Data
         public DbSet<Category> Categories { get; set; }
         public DbSet<Product> Products { get; set; }
         public DbSet<Company> Companies { get; set; }
+
+        public DbSet<ProductImage> ProductImages { get; set; }
+
 
         public DbSet<ShoppingCart> ShoppingCarts { get; set; }
 

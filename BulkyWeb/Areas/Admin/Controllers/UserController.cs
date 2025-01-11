@@ -18,12 +18,13 @@ namespace BulkyBookWeb.Areas.Admin.Controllers
     [Authorize(Roles = SD.Role_Adm)]
     public class UserController : Controller
     {
-        private readonly IUnitOfWork unitOfWork;
-        private readonly RoleManager<IdentityRole> roleManager;
-        private readonly UserManager<IdentityUser> userManager;
+
 
 
         #region prop
+        private readonly IUnitOfWork unitOfWork;
+        private readonly RoleManager<IdentityRole> roleManager;
+        private readonly UserManager<IdentityUser> userManager;
 
         #endregion
 

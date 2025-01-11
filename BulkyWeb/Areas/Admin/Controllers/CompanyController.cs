@@ -63,10 +63,7 @@ namespace BulkyBookWeb.Areas.Admin.Controllers
         {
 
             bool isNewProduct = obj.Id == 0;
-            //if (obj.Name == obj.DisplayOrder.ToString())
-            //{
-            //    ModelState.AddModelError("name", "The Display Order Can't Exactly Match The Name");
-            //}
+           
             if (ModelState.IsValid)
             {
                 await unitOfWork.Company.CreateOrUpdateAsync(obj);

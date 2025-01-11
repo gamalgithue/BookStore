@@ -18,6 +18,7 @@ namespace BulkyBook.DataAccess.Repository.IRepository
 		public IOrderDetailRepository OrderDetail { get; }
 		public IOrderHeaderRepository OrderHeader { get; }
 
+       public IProductImageRepository ProductImage { get; }
 
 
 

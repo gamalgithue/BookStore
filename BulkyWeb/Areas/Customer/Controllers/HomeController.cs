@@ -29,7 +29,7 @@ namespace BulkyBookWeb.Areas.Customer.Controllers
         #region Index
         public async Task<IActionResult> Index()
         {
-            IEnumerable<Product> objProduct = await unitofwork.Product.GetAsync(null, false, x => x.Category);
+            IEnumerable<Product> objProduct = await unitofwork.Product.GetAsync(null, false, x =>x.Category,x=>x.ProductImages);
           return View(objProduct);
         }
         #endregion
@@ -41,7 +41,7 @@ namespace BulkyBookWeb.Areas.Customer.Controllers
 
             ShoppingCart cart = new()
             {
-                Product = await unitofwork.Product.GetFirstOrDefaultAsync(x => x.Id == productId, false, x => x.Category),
+                Product = await unitofwork.Product.GetFirstOrDefaultAsync(x => x.Id == productId, false, x => x.Category, x => x.ProductImages),
                 Count = 1,
                 ProductId = productId
 
