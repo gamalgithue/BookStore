@@ -1,5 +1,5 @@
 <p align="center">
-    <img src="https://readme-typing-svg.herokuapp.com?font=Fira+Code&weight=900&size=34&pause=1000&center=true&width=435&lines=Book Store" alt="head" />
+    <img src="https://readme-typing-svg.herokuapp.com?font=Fira+Code&weight=900&size=34&pause=1000&center=true&width=435&lines=BookStore" alt="head" />
 </p>
 
 ## Project Description
