@@ -13,6 +13,8 @@ namespace BulkyBookWeb.Areas.Customer.Controllers
     [Area("Customer")]
     public class HomeController : Controller
     {
+
+        #region Ctor
         private readonly ILogger<HomeController> _logger;
         private readonly IUnitOfWork unitofwork;
 
@@ -21,20 +23,18 @@ namespace BulkyBookWeb.Areas.Customer.Controllers
             this._logger = logger;
             this.unitofwork = _unitofwork;
         }
+        #endregion
 
+
+        #region Index
         public async Task<IActionResult> Index()
         {
-           
-
-
             IEnumerable<Product> objProduct = await unitofwork.Product.GetAsync(null, false, x => x.Category);
-
-
-
-
-            return View(objProduct);
+          return View(objProduct);
         }
+        #endregion
 
+        #region Details
         [HttpGet]
         public async Task<IActionResult> Details(int productId)
         {
@@ -53,10 +53,7 @@ namespace BulkyBookWeb.Areas.Customer.Controllers
         [Authorize]
         public async Task<IActionResult> Details(ShoppingCart shoppingCart)
         {
-
-
-
-            var claimsIdentity = (ClaimsIdentity?)User.Identity;
+          var claimsIdentity = (ClaimsIdentity?)User.Identity;
             var userId = claimsIdentity?.FindFirst(ClaimTypes.NameIdentifier)?.Value;
             shoppingCart.ApplicationUserId = userId;
             ShoppingCart CartFromDb = await unitofwork.ShoppingCart.GetFirstOrDefaultAsync(x => x.ApplicationUserId == userId && x.ProductId == shoppingCart.ProductId);
@@ -97,5 +94,7 @@ namespace BulkyBookWeb.Areas.Customer.Controllers
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
+
+        #endregion
     }
 }

@@ -1,5 +1,6 @@
 ﻿using BulkyBook.Data;
 using BulkyBook.DataAccess.Repository.IRepository;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -22,7 +23,8 @@ namespace BulkyBook.DataAccess.Repository
         public IOrderDetailRepository OrderDetail { get; private set; }
 		public IOrderHeaderRepository OrderHeader { get; private set; }
 
-		public UnitOfWork(ApplicationDbContext _db)
+
+        public UnitOfWork(ApplicationDbContext _db)
         {
             this.db = _db;
             Category = new CategoryRepository(db);
@@ -32,6 +34,7 @@ namespace BulkyBook.DataAccess.Repository
             ApplicationUser = new ApplicationUserRepository(db);
             OrderDetail = new OrderDetailRepository(db);
             OrderHeader = new OrderHeaderRepository(db);
+           
 
 
         }

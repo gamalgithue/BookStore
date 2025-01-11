@@ -17,6 +17,8 @@ namespace BulkyBookWeb.Areas.Customer.Controllers
     [Authorize]
     public class CartController : Controller
     {
+
+        #region ctor
         private readonly IUnitOfWork unitOfWork;
         private readonly IEmailSender emailSender;
 
@@ -27,6 +29,9 @@ namespace BulkyBookWeb.Areas.Customer.Controllers
             this.unitOfWork = unitOfWork;
             this.emailSender = emailSender;
         }
+        #endregion
+
+        #region index
 
         public async Task<IActionResult> Index()
         {
@@ -50,7 +55,10 @@ namespace BulkyBookWeb.Areas.Customer.Controllers
 
             
         }
+        #endregion
 
+
+        #region Summary
         public async Task<IActionResult> Summary()
         {
 			var claimsIdentity = (ClaimsIdentity?)User.Identity;
@@ -169,6 +177,10 @@ namespace BulkyBookWeb.Areas.Customer.Controllers
             }
 			return RedirectToAction(nameof(OrderConfirmation), new { id = ShoppingCartVM.OrderHeader.Id });
 		}
+
+        #endregion
+
+        #region OrderConfirmation
         public async Task<ActionResult>  OrderConfirmation(int id)
         {
             OrderHeader orderHeader = await unitOfWork.OrderHeader.GetFirstOrDefaultAsync(x => x.Id == id,false,x=> x.ApplicationUser);
@@ -197,9 +209,10 @@ namespace BulkyBookWeb.Areas.Customer.Controllers
            await unitOfWork.Save();
             return View(id);
         }
+        #endregion
 
-		#region Calculate The Count
-		public async Task<IActionResult> Plus(int cartId)
+        #region Calculate The Count
+        public async Task<IActionResult> Plus(int cartId)
         {
             var cartDb = await unitOfWork.ShoppingCart.GetFirstOrDefaultAsync(x => x.Id == cartId);
             cartDb.Count += 1;

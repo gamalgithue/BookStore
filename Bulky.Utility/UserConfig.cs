@@ -6,8 +6,7 @@ using System.Threading.Tasks;
 
 namespace BulkyBook.Utility
 {
-   public class UserConfig
-    {
+   public class UserConfig { 
        
             public string Name { get; set; }
             public string UserName { get; set; }
@@ -17,11 +16,11 @@ namespace BulkyBook.Utility
             public string? City { get; set; }
             public string? State { get; set; }
             public string? PostalCode { get; set; }
-         public string? PhoneNumber { get; set; }
+            public string? PhoneNumber { get; set; }
 
-        public int? CompanyId { get; set; }
-        public string Role { get; set; }
+             public int? CompanyId { get; set; }
+             public string Role { get; set; }
         
 
-    }
+             }
 }

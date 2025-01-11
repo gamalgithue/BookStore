@@ -18,6 +18,7 @@ namespace BulkyBookWeb.Areas.Admin.Controllers
     [Authorize(Roles =SD.Role_Adm)]
     public class OrderController : Controller
     {
+        #region ctor
         private readonly IUnitOfWork unitOfWork;
         [BindProperty]
         public OrderVM OrderVM { get; set; }
@@ -26,11 +27,14 @@ namespace BulkyBookWeb.Areas.Admin.Controllers
         {
             this.unitOfWork = unitOfWork;
         }
+
+        #endregion
+
+        #region OrderDetails
         public IActionResult Index()
         {
             return View();
         }
-
         public async Task<IActionResult> Details(int orderId)
         {
            OrderVM = new()
@@ -207,7 +211,7 @@ namespace BulkyBookWeb.Areas.Admin.Controllers
         }
 
 
-            [HttpGet]
+        [HttpGet]
         public async Task<IActionResult> GetAll(string status)
         {
              await unitOfWork.OrderHeader.GetAsync(null, false, x => x.ApplicationUser);
@@ -251,5 +255,7 @@ namespace BulkyBookWeb.Areas.Admin.Controllers
 
             return Json(new { data = objOrders });
         }
+
+        #endregion
     }
 }

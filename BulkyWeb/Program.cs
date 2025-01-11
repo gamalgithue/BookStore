@@ -17,27 +17,32 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
-//builder.Services.AddControllersWithViews().AddNewtonsoftJson(opt => {
-//    opt.SerializerSettings.ContractResolver = new DefaultContractResolver();
-//});
 
 builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
-//builder.Services.AddScoped<ICategoryRepository, CategoryRepository>();
-//builder.Services.AddScoped<IProductRepository, ProductRepository>();
+
 
 #region ConnectionString
 var connectionstring = builder.Configuration.GetConnectionString("ApplicatonConnection");
 
-builder.Services.Configure<StripeSettings>(builder.Configuration.GetSection("Stripe"));
 
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
 options.UseSqlServer(connectionstring));
+#endregion
 
-builder.Services.AddIdentity<IdentityUser, IdentityRole>(options =>
-    options.SignIn.RequireConfirmedAccount = true)
+#region Identity
+builder.Services.AddIdentity<IdentityUser, IdentityRole>(options => {
+    options.SignIn.RequireConfirmedAccount = true;
+    options.User.RequireUniqueEmail = true;
+   })
     .AddEntityFrameworkStores<ApplicationDbContext>()
     .AddDefaultTokenProviders()
     .AddRoles<IdentityRole>();
+#endregion
+
+
+#region Configurations
+builder.Services.Configure<StripeSettings>(builder.Configuration.GetSection("Stripe"));
+
 builder.Services.AddScoped<IEmailSender, EmailSender>();
 builder.Services.AddScoped<SeedData>();
 
@@ -75,6 +80,11 @@ builder.Services.AddSession(ops =>
 
 var app = builder.Build();
 
+
+#region Seed roles
+
+
+
 using (var scope = app.Services.CreateScope())
 {
     var seedData = scope.ServiceProvider.GetRequiredService<SeedData>();
@@ -89,6 +99,7 @@ using (var scope = app.Services.CreateScope())
     }
 }
 
+#endregion
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())
 {

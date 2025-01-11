@@ -57,6 +57,9 @@
                                     <li class="nav-item">
                                         <a class="nav-link text-dark" asp-area="Identity"  asp-page="/Account/Register">Create User</a>
                                     </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link text-dark" asp-area="Admin" asp-controller="User" asp-action="Index">Manage Users</a>
+                                    </li>
                                 </ul>
 
                             </li>
@@ -102,7 +105,7 @@
 
     <script src="https://cdn.tiny.cloud/1/qd1iwwglhna1d8428d3vcgmsxl20spm7st9vbz77o1rb9q9w/tinymce/7/tinymce.min.js" referrerpolicy="origin"></script>
 
-
+    <script src="~/toastr.js/toastr.min.js"></script>
     @await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>

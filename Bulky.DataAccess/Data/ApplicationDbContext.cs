@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.Options;
 
 namespace BulkyBook.Data
 {
@@ -24,6 +25,8 @@ namespace BulkyBook.Data
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+
+          
             base.OnModelCreating(modelBuilder);
             modelBuilder.Entity<Category>().HasData(
 
