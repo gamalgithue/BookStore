@@ -98,7 +98,7 @@ Try the BookStore WebSite live: [BookStore](https://bulkywebstore.runasp.net/)
      "ConnectionStrings": {
     "ApplicatonConnection": "server=.;database=BulkyBook_DB1;integrated security = true;MultipleActiveResultSets=True;TrustServerCertificate=true;"
          }
- ```
+      ```
    - Stripe API key
    - SendGrid API key
 5. Run database migrations or execute the provided SQL scripts to set up the database.
