@@ -9,89 +9,100 @@ The BookStore WebSite is a full-featured platform designed to provide users with
 ## Table of Contents
 
 * [Deployment](#deployment)
-* [Getting Started](#getting-started)
 * [Requirements](#requirements)
+* [Getting Started](#getting-started)
 * [ER Diagram](https://github.com/user-attachments/assets/b927bcee-5f7d-42bd-a369-c74c5a772a98)
 * [Authors](#authors-black_nib)
 ## Deployment
-Try the BookStore live: [BookStore Site](https://bulkywebstore.runasp.net/)
+Try the BookStore WebSite live: [BookStore](https://bulkywebstore.runasp.net/)
 
-## Getting Started
+ ## Requirements
+ ### Functional Requirements
 
-1- Clone the repository
-```bash
-git clone https://github.com/gamalgithue/BookStore.git
-```
+#### User Roles
 
-2- Configure Connection String
-- Open `appsettings.json` file and update the `SQL-Server` string with your SQL Server connection string.
+1. **Admin**:
 
-3- Update Database
-```bash
-dotnet ef database update
-```
-4- Run the API
-```bash
-dotnet run
-```
-### Functional Requirements
+   - Manage all books, orders, and users.
+   - Oversee authentication and send confirmation emails using SendGrid.
+   - Monitor and manage the platform's overall functionality.
 
-* **User Roles**:
+2. **Customer**:
 
-* **Admin**:
+   - Browse books by category, author, or genre.
+   - Add books to the cart and make payments via Stripe.
+   - Receive order confirmation emails upon successful payment.
+   - Track order history and view order details.
 
-       *Manage all books, orders, and users.
+3. **Company**:
 
-       *Oversee authentication and send confirmation emails using SendGrid.
+   - Manage inventory and update book details (pricing, stock, etc.).
+   - Coordinate with admin for large-scale operations.
 
-       *Monitor and manage the platform's overall functionality.
+4. **Employee**:
 
-* **Customer**:
-
-       *Browse books by category, author, or genre.
-
-        *Add books to the cart and make payments via Stripe.
-
-        *Receive order confirmation emails upon successful payment.
-
-        *Track order history and view order details.
-
-* **Employee**:
-
-       *Assist in order processing and customer support.
+   - Assist in order processing and customer support.
 
 ### Features
 
-       *Shopping Cart: Add, remove, and update items before checkout.
+- **Shopping Cart**: Add, remove, and update items before checkout.
+- **Payment Gateway**: Secure payment integration with Stripe.
+- **Order Management**: Customers can view order details and track status; admins can manage orders.
+- **Email Notifications**:
+  - Confirmation emails to customers upon successful payment using SendGrid.
+  - Email verification for user registration.
+- **Authentication**:
+  - Local account registration with confirmation email.
+  - External login support (e.g., Facebook)
+    
+-----
 
-       *Payment Gateway: Secure payment integration with Stripe.
-
-      *Order Management: Customers can view order details and track status; admins can manage orders.
-
-* **Email Notifications**:
-
-         *Confirmation emails to customers upon successful payment using SendGrid.
-
-         *Email verification for user registration.
-
-* **Authentication**:
-
-         *Local account registration with confirmation email.
-
-          *External login support (e.g., Facebook).
-
-  ---
 ### Non-Functional Requirements
 
-*Scalability: The system is designed to handle a growing number of users and books.
+- **Scalability**: The system is designed to handle a growing number of users and books.
 
-*Security: All sensitive data, including payment details, are encrypted.
+- **Security**: All sensitive data, including payment details, are encrypted.
 
-*Performance: Fast response times for browsing, cart management, and checkout.
+- **Performance**: Fast response times for browsing, cart management, and checkout.
 
-*Usability: Intuitive user interface with clear navigation for all user roles.
+- **Usability**: Intuitive user interface with clear navigation for all user roles.
 
-*Reliability: Robust error handling to ensure uninterrupted service.
+- **Reliability**: Robust error handling to ensure uninterrupted service.
+
+------
+
+## Getting Started
+
+### Prerequisites
+
+- Visual Studio 2022
+- SQL Server 2022 
+- ASP.NET Core 8.0
+- Stripe API key and SendGrid API key
+
+### Installation
+
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/your-repo/ecommerce-books.git
+   ```
+2. Open the project in Visual Studio.
+3. Restore NuGet packages by building the solution.
+4. Configure the following in `appsettings.json`:
+   - Database connection string
+   - Stripe API key
+   - SendGrid API key
+5. Run database migrations or execute the provided SQL scripts to set up the database.
+6. Start the application using IIS Express or a similar server.
+
+
+## Technology Stack
+
+- **Frontend**: HTML, CSS, JavaScript, and jQuery.
+- **Backend**: ASP.NET Core MVC for handling server-side logic.
+- **Database**: SQL Server for storing users, books, orders, and other data.
+- **Payment Gateway**: Stripe for secure and reliable transactions.
+- **Email Service**: SendGrid for sending confirmation and notification emails.
 
 
 
