@@ -12,7 +12,7 @@ The BookStore WebSite is a full-featured platform designed to provide users with
 * [Requirements](#requirements)
 * [Getting Started](#getting-started)
 * [ER Diagram](https://github.com/user-attachments/assets/b927bcee-5f7d-42bd-a369-c74c5a772a98)
-* [Technology Stack](#technology-tools)
+* [Technology Tools](#technology-tools)
 
 ## Deployment
 Try the BookStore WebSite live: [BookStore](https://bulkywebstore.runasp.net/)
