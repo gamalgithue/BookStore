@@ -11,7 +11,7 @@ The BookStore WebSite is a full-featured platform designed to provide users with
 * [Deployment](#deployment)
 * [Requirements](#requirements)
 * [Getting Started](#getting-started)
-* [ER Diagram](https://github.com/gamalgithue/BookStore/issues/1#issue-2784771728)
+* [ER Diagram]![Db_BulkyStore](https://github.com/user-attachments/assets/f6a3cdf9-92cd-46ed-be95-34dff93d2b4d)
 * [Technology Tools](#technology-tools)
 
 ## Deployment
