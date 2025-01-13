@@ -11,7 +11,7 @@ The BookStore is a full-featured platform designed to provide users with an exce
 * [Deployment](#deployment)
 * [Requirements](#requirements)
 * [Getting Started](#getting-started)
-* [ER Diagram](https://github.com/user-attachments/assets/f6a3cdf9-92cd-46ed-be95-34dff93d2b4d)
+* [DB Diagram](https://github.com/user-attachments/assets/f6a3cdf9-92cd-46ed-be95-34dff93d2b4d)
 * [Technology Tools](#technology-tools)
 
 ## Deployment
@@ -96,16 +96,12 @@ Try the BookStore WebSite live: [BookStore](https://bulkywebstore.runasp.net/)
    - Stripe API key
    - SendGrid API key
 5. Run database migrations or execute the provided SQL scripts to set up the database.
-6. Update Database
-```bash
-dotnet ef database update
-```
-7. Start the application using IIS Express or a similar server.
+6. Start the application using IIS Express or a similar server.
    
 
 
-## ER Diagram
-![ER Diagram](https://github.com/user-attachments/assets/f6a3cdf9-92cd-46ed-be95-34dff93d2b4d)
+## DB Diagram
+![DB Diagram](https://github.com/user-attachments/assets/f6a3cdf9-92cd-46ed-be95-34dff93d2b4d)
 
   
 ## Technology Tools
