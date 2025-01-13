@@ -101,7 +101,10 @@ Try the BookStore WebSite live: [BookStore](https://bulkywebstore.runasp.net/)
 ------
 
 ## ER Diagram
+* [ER Diagram](https://github.com/gamalgithue/BookStore/issues/1#issue-2784771728)
 
+  -----
+  
 ## Technology Tools
 
 - **Frontend**: HTML, CSS, JavaScript, and jQuery.
