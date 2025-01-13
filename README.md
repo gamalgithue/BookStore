@@ -97,7 +97,10 @@ Try the BookStore WebSite live: [BookStore](https://bulkywebstore.runasp.net/)
    - SendGrid API key
 5. Run database migrations or execute the provided SQL scripts to set up the database.
 6. Start the application using IIS Express or a similar server.
+   
+------
 
+## ER Diagram
 
 ## Technology Tools
 
