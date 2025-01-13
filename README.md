@@ -96,7 +96,11 @@ Try the BookStore WebSite live: [BookStore](https://bulkywebstore.runasp.net/)
    - Stripe API key
    - SendGrid API key
 5. Run database migrations or execute the provided SQL scripts to set up the database.
-6. Start the application using IIS Express or a similar server.
+6. Update Database
+```bash
+dotnet ef database update
+```
+7. Start the application using IIS Express or a similar server.
    
 
 
