@@ -11,7 +11,7 @@ The BookStore WebSite is a full-featured platform designed to provide users with
 * [Deployment](#deployment)
 * [Requirements](#requirements)
 * [Getting Started](#getting-started)
-* [ER Diagram]![Db_BulkyStore](https://github.com/user-attachments/assets/f6a3cdf9-92cd-46ed-be95-34dff93d2b4d)
+* [ER Diagram](https://github.com/user-attachments/assets/f6a3cdf9-92cd-46ed-be95-34dff93d2b4d)
 * [Technology Tools](#technology-tools)
 
 ## Deployment
@@ -101,7 +101,7 @@ Try the BookStore WebSite live: [BookStore](https://bulkywebstore.runasp.net/)
 
 
 ## ER Diagram
-![Db_BulkyStore](https://github.com/user-attachments/assets/f6a3cdf9-92cd-46ed-be95-34dff93d2b4d)
+![ER Diagram](https://github.com/user-attachments/assets/f6a3cdf9-92cd-46ed-be95-34dff93d2b4d)
 
   
 ## Technology Tools
