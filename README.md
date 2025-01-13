@@ -99,7 +99,7 @@ Try the BookStore WebSite live: [BookStore](https://bulkywebstore.runasp.net/)
 6. Start the application using IIS Express or a similar server.
 
 
-## Technology Stack
+## Technology Tools
 
 - **Frontend**: HTML, CSS, JavaScript, and jQuery.
 - **Backend**: ASP.NET Core MVC for handling server-side logic.
