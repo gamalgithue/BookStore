@@ -101,7 +101,7 @@ Try the BookStore WebSite live: [BookStore](https://bulkywebstore.runasp.net/)
 
 
 ## ER Diagram
-![ER Diagram](https://github.com/gamalgithue/BookStore/issues/1#issue-2784771728)
+![Db_BulkyStore](https://github.com/user-attachments/assets/f6a3cdf9-92cd-46ed-be95-34dff93d2b4d)
 
   
 ## Technology Tools
