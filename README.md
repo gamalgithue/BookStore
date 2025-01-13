@@ -17,7 +17,7 @@ The BookStore WebSite is a full-featured platform designed to provide users with
 ## Deployment
 Try the BookStore WebSite live: [BookStore](https://bulkywebstore.runasp.net/)
 
-----------
+
 
  ## Requirements
  ### Functional Requirements
@@ -72,7 +72,7 @@ Try the BookStore WebSite live: [BookStore](https://bulkywebstore.runasp.net/)
 
 - **Reliability**: Robust error handling to ensure uninterrupted service.
 
-------
+
 
 ## Getting Started
 
@@ -98,12 +98,11 @@ Try the BookStore WebSite live: [BookStore](https://bulkywebstore.runasp.net/)
 5. Run database migrations or execute the provided SQL scripts to set up the database.
 6. Start the application using IIS Express or a similar server.
    
-------
+
 
 ## ER Diagram
 ![ER Diagram](https://github.com/gamalgithue/BookStore/issues/1#issue-2784771728)
 
-  -----
   
 ## Technology Tools
 
