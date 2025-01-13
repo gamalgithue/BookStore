@@ -12,9 +12,12 @@ The BookStore WebSite is a full-featured platform designed to provide users with
 * [Requirements](#requirements)
 * [Getting Started](#getting-started)
 * [ER Diagram](https://github.com/user-attachments/assets/b927bcee-5f7d-42bd-a369-c74c5a772a98)
-* [Authors](#authors-black_nib)
+* [Technology Stack](#technology_tools)
+
 ## Deployment
 Try the BookStore WebSite live: [BookStore](https://bulkywebstore.runasp.net/)
+
+----------
 
  ## Requirements
  ### Functional Requirements
@@ -84,7 +87,7 @@ Try the BookStore WebSite live: [BookStore](https://bulkywebstore.runasp.net/)
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/your-repo/ecommerce-books.git
+   git clone https://github.com/gamalgithue/BookStore.git
    ```
 2. Open the project in Visual Studio.
 3. Restore NuGet packages by building the solution.
