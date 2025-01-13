@@ -3,7 +3,7 @@
 </p>
 
 ## Project Description
-The BookStore WebSite is a full-featured platform designed to provide users with an exceptional shopping experience. It includes features for browsing books, managing a cart, making secure payments, and tracking orders. The application also incorporates email notifications, multi-role access, and external authentication to enhance usability and security.
+The BookStore is a full-featured platform designed to provide users with an exceptional shopping experience. It includes features for browsing books, managing a cart, making secure payments, and tracking orders. The application also incorporates email notifications, multi-role access, and external authentication to enhance usability and security.
 <br />
 
 ## Table of Contents
