@@ -77,15 +77,12 @@ Try the BookStore WebSite live: [BookStore](https://bulkywebstore.runasp.net/)
 ## Getting Started
 
 ### Prerequisites
+
 - **Visual Studio 2022**
 - **SQL Server 2022**
 - **ASP.NET Core 8.0**
 - **Stripe API key and SendGrid API key**
 
-- Visual Studio 2022
-- SQL Server 2022 
-- ASP.NET Core 8.0
-- Stripe API key and SendGrid API key
 
 ### Installation
 
